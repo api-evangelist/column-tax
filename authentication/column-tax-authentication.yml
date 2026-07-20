@@ -1,0 +1,28 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.columntax.com/reference/authentication
+docs: https://docs.columntax.com/reference/authentication
+summary:
+  types: [http]
+  http_schemes: [basic]
+  credential_provisioning: manual
+  notes: 'Credentials (client_id and client_secret) are provisioned by the Column Tax team and must be
+    stored in secure credentials storage. All API calls are made server-side to keep the client_secret
+    off the client.'
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: 'HTTP Basic authentication. The Authorization header carries Base64-encoded
+    client_id:client_secret. Every request must include this header.'
+  location: header
+  header: Authorization
+  format: 'Basic base64(client_id:client_secret)'
+  sources: [https://docs.columntax.com/reference/authentication]
+required_headers:
+- name: Authorization
+  value: 'Basic <base64(client_id:client_secret)>'
+  applies_to: all requests
+- name: Content-Type
+  value: application/json
+  applies_to: POST requests
