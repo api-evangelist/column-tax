@@ -1,0 +1,29 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.columntax.com/docs/launch-ui-guide
+note: 'Embeddable client-side surfaces that render the Column Tax filing UI inside a partner app.
+  Distinct from server-side SDKs; the backend REST API is called directly (HTTP Basic).'
+families:
+- name: Web loader
+  description: 'Hosted JavaScript loader that opens the Column Tax filing UI in the browser using a
+    short-lived authenticated user URL.'
+  loaders:
+  - environment: sandbox
+    url: https://app-sandbox.columnapi.com/column-tax.js
+  - environment: production
+    url: https://app.columnapi.com/column-tax.js
+- name: iOS SDK
+  description: 'Native SwiftUI component that presents the filing WebView.'
+  entrypoint: ColumnTaxFile
+  props: [userUrl, isPresented, handleClose]
+  package: packages/column-tax-packages.yml (column-tax-ios-sdk)
+- name: Android SDK
+  description: 'Native Activity that launches the filing UI.'
+  entrypoint: ColumnTaxFileActivity
+  init: [applicationContext, userUrl]
+  package: packages/column-tax-packages.yml (com.columntax.columntaxsdk:column-tax-sdk)
+- name: React Native SDK
+  description: 'React Native component rendered as a modal overlay or embedded screen.'
+  entrypoint: ColumnTaxFile
+  props: [userUrl, handleClose]
+  package: packages/column-tax-packages.yml (@columntax/column-tax-react-native-sdk)

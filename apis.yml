@@ -1,9 +1,27 @@
 aid: column-tax
 name: Column Tax
-description: 'Column Tax is a company surfaced as a portfolio company of bain-capital-ventures and added
-  to the API Evangelist network as a stub for enrichment. Sector: fintech. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: 'Column Tax is an IRS-authorized, API-first tax filing platform that lets banks, brokerages,
+  neobanks, and SMB/freelancer fintech apps embed a full white-label income-tax preparation and e-file
+  experience directly inside their own product. Partners create a Column Tax user via a server-side REST
+  call, receive a short-lived authenticated URL, and launch the Column Tax UI (web loader or native iOS,
+  Android, and React Native SDKs) embedded in their app, while webhooks report each user through the
+  filing lifecycle. Column Tax offers DIY Filing and Expert Review products, is a SOC 2-certified and
+  IRS-authorized e-file provider, and reports outcomes such as higher retention and direct-deposit
+  switching for embedded partners.'
 url: https://raw.githubusercontent.com/api-evangelist/column-tax/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://cdn.prod.website-files.com/6262ffa3aeadc15ee876298b/627bf917c708fc0ec6460fcb_Text_Image.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -12,16 +30,99 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
 - Fintech
-apis: []
+- Tax
+- Tax Filing
+- Embedded Finance
+- E-File
+- Financial Services
+- Banking
+- API First
+apis:
+- name: Column Tax API
+  description: 'REST API to embed IRS-authorized income-tax preparation and e-filing. Create a Column
+    Tax user, obtain a short-lived authenticated URL to launch the embedded filing UI, list a user''s
+    tax returns and jurisdictions, and subscribe to webhook events across the filing lifecycle.'
+  humanURL: https://docs.columntax.com/v1.1/reference
+  baseURL: https://prod.columnapi.com
+  tags:
+  - Tax
+  - E-File
+  - Embedded Finance
+  properties:
+  - type: Documentation
+    url: https://docs.columntax.com/docs/welcome
+  - type: APIReference
+    url: https://docs.columntax.com/v1.1/reference
+  - type: Authentication
+    url: https://docs.columntax.com/reference/authentication
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/column-tax-domain-security.yml
 - type: Website
   url: https://www.columntax.com/
+- type: DeveloperPortal
+  url: https://docs.columntax.com/docs/welcome
+- type: Documentation
+  url: https://docs.columntax.com/docs/welcome
+- type: APIReference
+  url: https://docs.columntax.com/v1.1/reference
+- type: GettingStarted
+  url: https://docs.columntax.com/docs/quick-start
+- type: Quickstart
+  url: https://docs.columntax.com/docs/quick-start
+- type: Authentication
+  url: https://docs.columntax.com/reference/authentication
+- type: Support
+  url: https://www.columntax.com/contact-us
+- type: Blog
+  url: https://www.columntax.com/blog
+- type: GitHubOrganization
+  url: https://github.com/column-tax
+- type: StatusPage
+  url: https://status.columntax.com
+- type: TermsOfService
+  url: https://www.columntax.com/terms-of-use
+- type: PrivacyPolicy
+  url: https://www.columntax.com/privacy-policy
+- type: Packages
+  url: packages/column-tax-packages.yml
+- type: SDKs
+  url: packages/column-tax-packages.yml
+- type: LLMsTxt
+  url: llms/column-tax-llms.txt
+- type: Authentication
+  url: authentication/column-tax-authentication.yml
+- type: Conventions
+  url: conventions/column-tax-conventions.yml
+- type: ErrorCatalog
+  url: errors/column-tax-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/column-tax-lifecycle.yml
+- type: Conformance
+  url: conformance/column-tax-conformance.yml
+- type: Compliance
+  url: conformance/column-tax-conformance.yml
+- type: MCPServer
+  url: mcp/column-tax-mcp.yml
+- type: Sandbox
+  url: sandbox/column-tax-sandbox.yml
+- type: Webhooks
+  url: asyncapi/column-tax-webhooks.yml
+- type: DataModel
+  url: data-model/column-tax-data-model.yml
+- type: Components
+  url: components/column-tax-components.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

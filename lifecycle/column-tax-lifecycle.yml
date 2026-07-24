@@ -1,0 +1,25 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.columntax.com/reference/environments
+versioning:
+  scheme: uri-path
+  current: v1
+  reference_version: v1.1
+  docs: https://docs.columntax.com/reference/environments
+environments:
+- name: sandbox
+  base_url: https://sandbox.columnapi.com
+  ui_loader: https://app-sandbox.columnapi.com/column-tax.js
+- name: production
+  base_url: https://prod.columnapi.com
+  ui_loader: https://app.columnapi.com/column-tax.js
+deprecation:
+  policy_url: null
+  sunset_header: false
+  detail: 'No formal deprecation/sunset policy is published. A 410 Gone is returned for a user_identifier
+    that has been deleted at user request (user-data lifecycle, not API deprecation).'
+sla:
+  uptime_claim: '99.999%+'
+  source: https://www.columntax.com/
+status_page: https://status.columntax.com
+deprecated_operations: []

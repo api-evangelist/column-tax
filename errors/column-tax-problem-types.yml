@@ -1,0 +1,31 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.columntax.com/reference/errors-rate-limits
+format: http-status
+envelope:
+  detail: 'Errors return a JSON body with extra information about what went wrong. Exact field names
+    are not published in the reference.'
+rate_limits:
+  default: 10 requests/second (600 requests/minute)
+  custom: available on request
+problems:
+- status: 200
+  title: OK
+- status: 400
+  title: Bad Request
+- status: 401
+  title: Unauthorized
+  remediation: Check the Authorization Basic header (Base64 client_id:client_secret).
+- status: 403
+  title: Forbidden
+- status: 404
+  title: Not Found
+- status: 410
+  title: Gone
+  detail: 'User with the given user_identifier has been deleted at user request.'
+- status: 429
+  title: Too Many Requests
+  detail: 'Rate limit exceeded (default 10 req/s, 600 req/min).'
+- status: 500
+  title: Internal Server Error
+  detail: '5XX class server error.'

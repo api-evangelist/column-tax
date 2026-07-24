@@ -1,0 +1,33 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.columntax.com/
+compliance_program:
+  url: https://www.columntax.com/
+  certifications:
+  - SOC 2
+  irs_authorized_efile_provider: true
+  encryption: AES-256 at rest, TLS/HTTPS in transit
+standards:
+- id: soc2
+  conforms: true
+  evidence: 'SOC 2 certified (Type I/II) per columntax.com trust/security claims.'
+- id: irs-authorized-efile
+  conforms: true
+  evidence: 'IRS Authorized e-File Provider.'
+- id: irc-7216-consent
+  conforms: true
+  evidence: 'Tax return objects expose information_disclosure_consent_status and
+    information_use_consent_status (IRS Section 7216 taxpayer consent).'
+- id: rest
+  conforms: true
+  evidence: 'JSON-over-HTTPS REST API with resource-oriented paths under /v1/.'
+- id: http-basic-auth
+  conforms: true
+  evidence: 'RFC 7617 HTTP Basic authentication.'
+- id: oauth2
+  conforms: false
+- id: openid-connect
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: 'Errors return JSON but not application/problem+json.'

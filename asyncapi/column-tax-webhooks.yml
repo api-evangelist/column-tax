@@ -1,0 +1,54 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.columntax.com/reference/webhook-events
+spec_type: Webhooks
+transport: https-webhook
+signing:
+  scheme: svix-style-hmac
+  signature_header: webhook-signature
+  signature_format: 'space-delimited version,signature (e.g. v1,<signature>)'
+  id_header: webhook-id
+  timestamp_header: webhook-timestamp
+  secret: 'shared secret exchanged securely with Column Tax'
+  replay_protection: verify webhook-timestamp tolerance
+delivery:
+  retry: 'retries on 4xx and 5xx responses with exponential backoff'
+  source_ip_allowlist:
+  - 44.228.126.217
+  - 50.112.21.217
+  - 52.24.126.164
+  - 54.148.139.208
+envelope:
+  type: string
+  timestamp: string (ISO 8601)
+  user_identifier: string
+  data: object
+events:
+- name: user.user_status_changed
+  description: Fired when a user's filing status changes.
+  data:
+    tax_year: int
+    previous_value: UserStatus
+    new_value: UserStatus
+- name: tax_return.submission_status_changed
+  description: Fired when a tax return's submission status changes (per jurisdiction).
+  data:
+    tax_year: int
+    jurisdiction: string
+    previous_value: SubmissionStatus
+    new_value: SubmissionStatus
+- name: user.user_event
+  description: Fired as a user progresses through filing stages.
+  data:
+    tax_year: int
+    event_name: UserEventType
+enums:
+  UserStatus: [not_started, started, submitted]
+  SubmissionStatus: [not_submitted, submitted, accepted, retryable, rejected]
+  UserEventType:
+  - reaches_questionnaire
+  - reaches_tax_home
+  - reaches_basic_info_section
+  - reaches_income_section
+  - reaches_credits_and_deductions_section
+  - reaches_review_and_file

@@ -1,0 +1,53 @@
+generated: '2026-07-18'
+method: derived
+source: https://docs.columntax.com/reference/tax-returns
+note: 'Entity graph derived from the documented REST resources (no public OpenAPI available). Fields
+  reflect the published reference for GET /v1/users/{user_identifier}/tax_returns and webhook payloads.'
+entities:
+- name: User
+  identifier: user_identifier
+  description: 'A taxpayer within a partner integration, keyed by the partner-supplied user_identifier.'
+  relationships:
+  - has_many: TaxReturn
+    via: user_identifier
+- name: TaxReturn
+  description: 'A user''s tax return for a given tax year.'
+  fields:
+    tax_year: integer
+    status: enum(not_started, started, submitted)
+    information_disclosure_consent_status: enum(not_consented, consented)
+    information_use_consent_status: enum(not_consented, consented)
+    jurisdictions: array<Jurisdiction>
+    tax_filing_fee_payments: array
+    additional_products: array
+  relationships:
+  - belongs_to: User
+    via: user_identifier
+  - has_many: Jurisdiction
+    via: jurisdictions
+- name: Jurisdiction
+  description: 'Federal (US) or a state filing within a tax return.'
+  fields:
+    code: string (ANSI 2-letter state, or US for federal)
+    submission_status: enum(not_submitted, submitted, accepted, retryable, rejected)
+    refund_or_amount_owed_cents: integer (positive refund, negative owed, null if no consent)
+    refunds: array<Refund>
+    payment: object (direct-debit info)
+  relationships:
+  - belongs_to: TaxReturn
+  - has_many: Refund
+    via: refunds
+- name: Refund
+  description: 'A refund associated with a jurisdiction.'
+  relationships:
+  - belongs_to: Jurisdiction
+- name: WebhookEvent
+  description: 'Lifecycle event delivered to partner webhook endpoints.'
+  fields:
+    type: string
+    timestamp: string (ISO 8601)
+    user_identifier: string
+    data: object
+  relationships:
+  - belongs_to: User
+    via: user_identifier

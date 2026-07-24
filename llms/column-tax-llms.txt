@@ -1,0 +1,25 @@
+# Column Tax Documentation
+
+> Column Tax API Documentation
+
+## Guides
+- [Welcome to Column Tax!](https://docs.columntax.com/docs/welcome.md)
+- [Quick start](https://docs.columntax.com/docs/quick-start.md): How to integrate Column Tax
+- [API access](https://docs.columntax.com/docs/api-access.md)
+- [Create a Column Tax user](https://docs.columntax.com/docs/create-user-guide.md)
+- [Launch the Column Tax UI](https://docs.columntax.com/docs/launch-ui-guide.md): How to programmatically open up the Column Tax UI embedded within your app
+- [Build your Tax hub](https://docs.columntax.com/docs/tax-hub-guide.md)
+- [Run re-engagement campaigns](https://docs.columntax.com/docs/run-campaigns-guide.md)
+- [FAQs](https://docs.columntax.com/docs/faqs.md)
+- [Sample code](https://docs.columntax.com/docs/sample-code.md)
+
+## API Reference
+- [Environments](https://docs.columntax.com/reference/environments.md)
+- [Authentication and Headers](https://docs.columntax.com/reference/authentication.md)
+- [Errors and Rate Limits](https://docs.columntax.com/reference/errors-rate-limits.md)
+- [User URLs](https://docs.columntax.com/reference/users-tokens.md)
+- [Initialize Tax Filing](https://docs.columntax.com/reference/express-initialize-tax-filing.md)
+- [Tax Returns](https://docs.columntax.com/reference/tax-returns.md): Get a list of a user's Tax Returns
+- [Sample test users](https://docs.columntax.com/reference/sample-users.md)
+- [Webhook Events](https://docs.columntax.com/reference/webhook-events.md): Listen for user and tax return events
+- [Mobile SDK Reference](https://docs.columntax.com/reference/mobile-sdk-guide.md): Guide to using our iOS, Android, and React Native mobile SDKs

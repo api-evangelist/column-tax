@@ -1,0 +1,40 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.columntax.com/reference/sample-users
+environments:
+- name: sandbox
+  base_url: https://sandbox.columnapi.com
+  ui_loader: https://app-sandbox.columnapi.com/column-tax.js
+  credentials: 'Sandbox client_id/client_secret are provisioned by the Column Tax team on request.'
+- name: production
+  base_url: https://prod.columnapi.com
+  ui_loader: https://app.columnapi.com/column-tax.js
+test_separation:
+  detail: 'Separate sandbox and production environments with distinct base URLs, UI loaders, and
+    credentials. Integrate/QA in sandbox, then move to production.'
+sample_test_users:
+  detail: 'Passing one of these sample user_identifier values into POST /v1/exp/initialize_tax_filing in
+    the sandbox launches a user pre-seeded to the corresponding filing state.'
+  current_year:
+  - test_filing_not_started
+  - test_filing_started
+  - test_filing_submitted
+  - test_filing_submitted_accepted
+  - test_filing_submitted_accepted_with_state
+  - test_filing_submitted_retryable
+  - test_filing_submitted_rejected_non_retryable
+  - test_filing_submitted_accepted_with_payment
+  - test_filing_submitted_accepted_without_info_disclosure
+  with_previous_year_returns:
+  - test_not_started_previous_year_not_initialized
+  - test_not_initialized_previous_year_started
+  - test_not_initialized_previous_year_us_accepted
+  - test_us_accepted_ca_retryable_previous_year_us_accepted_ca_retryable
+  - test_started_previous_year_us_accepted_ca_accepted
+  - test_us_submitted_previous_year_us_accepted
+  - test_us_submitted_ca_not_submitted_previous_year_us_retryable
+  - test_us_accepted_previous_year_us_accepted_ca_accepted
+  - test_us_accepted_ca_accepted_previous_year_us_retryable_ca_not_submitted
+  - test_us_retryable_previous_year_not_started
+  - test_us_retryable_ca_not_submitted_previous_year_us_accepted
+  - test_us_accepted_ca_submitted_previous_year_us_retryable

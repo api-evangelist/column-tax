@@ -1,0 +1,44 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.columntax.com/v1.1/reference
+docs: https://docs.columntax.com/reference/authentication
+authentication:
+  style: http-basic
+  header: Authorization
+  detail: Base64(client_id:client_secret); see authentication/column-tax-authentication.yml
+idempotency:
+  supported: false
+  detail: 'No idempotency-key header/parameter is documented. The primary write operation
+    (POST /v1/exp/initialize_tax_filing) is documented as idempotent by design on user_identifier:
+    calling it for an existing user refreshes the authenticated URL rather than creating a duplicate user.'
+pagination:
+  supported: false
+  detail: 'List responses (e.g. GET /v1/users/{user_identifier}/tax_returns) return a bounded array
+    (tax_returns[]) with no documented cursor/offset paging parameters.'
+versioning:
+  style: uri-path
+  current: v1
+  reference_version: v1.1
+  detail: 'Endpoints are namespaced under /v1/ (e.g. /v1/exp/initialize_tax_filing,
+    /v1/users/{user_identifier}/tax_returns); the hosted reference is labeled v1.1.'
+error_envelope:
+  format: json
+  detail: 'Non-2xx responses return a JSON body with extra information about what went wrong.
+    The exact field names are not published in the reference. See errors/column-tax-problem-types.yml.'
+rate_limiting:
+  default: 10 requests/second (600 requests/minute)
+  custom: available on request
+  headers: not documented
+  see: errors/column-tax-problem-types.yml
+webhooks:
+  signing_scheme: svix-style
+  signature_header: webhook-signature
+  id_header: webhook-id
+  timestamp_header: webhook-timestamp
+  detail: 'HMAC signature (space-delimited v1,<signature>) verified with a shared secret; timestamp
+    tolerance recommended to prevent replay. See asyncapi/column-tax-webhooks.yml.'
+cross_links:
+  authentication: authentication/column-tax-authentication.yml
+  errors: errors/column-tax-problem-types.yml
+  lifecycle: lifecycle/column-tax-lifecycle.yml
+  webhooks: asyncapi/column-tax-webhooks.yml
