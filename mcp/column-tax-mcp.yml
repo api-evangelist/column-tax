@@ -2,17 +2,22 @@ generated: '2026-07-18'
 method: derived
 status: candidate
 source: https://docs.columntax.com/v1.1/reference
-note: 'No official Column Tax MCP server was found. This is a CANDIDATE tool list derived from the
-  documented REST operations, provided as a starting point for an MCP wrapper. Not an authoritative
-  Column Tax claim.'
+note: No official Column Tax MCP server was found. This is a CANDIDATE tool list derived from the documented
+  REST operations, provided as a starting point for an MCP wrapper. Not an authoritative Column Tax claim.
 server:
   name: column-tax
   transport: http
 tools:
 - name: initialize_tax_filing
-  description: 'Create a Column Tax user (or refresh their authenticated URL) and return a short-lived
-    URL to launch the embedded filing UI.'
-  source_operation: 'POST /v1/exp/initialize_tax_filing'
+  description: Create a Column Tax user (or refresh their authenticated URL) and return a short-lived
+    URL to launch the embedded filing UI.
+  source_operation: POST /v1/exp/initialize_tax_filing
 - name: list_tax_returns
-  description: "List a user's tax returns, jurisdictions, statuses, refunds, and consent state."
-  source_operation: 'GET /v1/users/{user_identifier}/tax_returns'
+  description: List a user's tax returns, jurisdictions, statuses, refunds, and consent state.
+  source_operation: GET /v1/users/{user_identifier}/tax_returns
+deployment:
+  mode: none
+  verified: derived
+  tools: 2
+  checked: '2026-08-12'
+  source: catalog MCP census
