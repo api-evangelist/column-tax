@@ -22,15 +22,17 @@ deliveryModel:
   method: derived
 accessModel:
   pricing: unknown
-  onboarding: self-serve
+  onboarding: unknown
   trial: false
   try_now: false
   public: false
-  label: Self-serve signup
-  confidence: medium
+  label: Unknown
+  confidence: low
   source:
   - authentication
-  generated: '2026-07-22'
+  - security
+  - sandbox
+  generated: '2026-09-03'
   method: derived
 image: https://cdn.prod.website-files.com/6262ffa3aeadc15ee876298b/627bf917c708fc0ec6460fcb_Text_Image.png
 x-type: company
@@ -132,8 +134,9 @@ common:
   url: conformance/column-tax-conformance.yml
 - type: Compliance
   url: conformance/column-tax-conformance.yml
-- type: MCPServer
+- type: X-MCPServerCandidate
   url: mcp/column-tax-mcp.yml
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
 - type: Sandbox
   url: sandbox/column-tax-sandbox.yml
 - type: Webhooks
