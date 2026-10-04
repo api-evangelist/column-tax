@@ -44,6 +44,9 @@ x-tier-reason: portfolio-lead
 specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-07-18'
+x-docs-platform: readme
+x-docs-platform-confidence: high
+x-docs-platform-checked: 2026-09-24
 tags:
 - Company
 - Fintech
@@ -51,7 +54,7 @@ tags:
 - Tax Filing
 - Embedded Finance
 - E-File
-- Financial-Services
+- Financial Services
 - Banking
 - API-First
 tags_raw:
@@ -64,6 +67,7 @@ tags_raw:
 - Financial Services
 - Banking
 - API First
+- Financial-Services
 apis:
 - name: Column Tax API
   description: 'REST API to embed IRS-authorized income-tax preparation and e-filing. Create a Column
